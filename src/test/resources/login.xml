@@ -1,0 +1,6 @@
+<?xml version="1.1" encoding="UTF-8" ?>
+<authRequest>
+    <username>Name</username>
+    <password>password</password>
+    <account>account</account>
+</authRequest>
