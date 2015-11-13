@@ -1,4 +1,4 @@
-package com.magenta.maxoptra.mobile.api.ns.mns0;
+package com.magenta.maxoptra.mobile.api.ns.mns1;
 
 import com.magenta.maxoptra.mobile.api.type.AuthStatus;
 
@@ -7,7 +7,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "AuthResponse")
 public class AuthResponse {
+
+    @XmlElement(name = "SessionID", required = true)
     private String sessionID;
+
+    @XmlElement(name = "Status", required = true)
     private AuthStatus status;
 
     public AuthResponse() {
@@ -22,7 +26,6 @@ public class AuthResponse {
         return sessionID;
     }
 
-    @XmlElement(name = "SessionID", required = true)
     public void setSessionID(String sessionID) {
         this.sessionID = sessionID;
     }
@@ -31,7 +34,6 @@ public class AuthResponse {
         return status;
     }
 
-    @XmlElement(name = "Status", required = true)
     public void setStatus(AuthStatus status) {
         this.status = status;
     }

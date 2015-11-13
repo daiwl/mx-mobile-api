@@ -1,11 +1,13 @@
 package com.magenta.maxoptra.mobile.api.ns.mns0;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlTransient;
 import java.util.List;
 
-@XmlRootElement(name = "SchSyncResponse")
-@XmlAccessorType(XmlAccessType.FIELD)
-public class ScheduleSyncResponse {
+@XmlTransient
+public abstract class MessageTransferObject {
 
     @XmlElement(name = "Time", required = true)
     private Long time;
@@ -22,7 +24,7 @@ public class ScheduleSyncResponse {
         this.time = time;
     }
 
-    public List<? extends Message> getMessages() {
+    public List<Message> getMessages() {
         return messages;
     }
 
