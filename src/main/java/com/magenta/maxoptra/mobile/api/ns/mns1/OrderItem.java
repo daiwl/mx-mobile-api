@@ -1,10 +1,11 @@
 package com.magenta.maxoptra.mobile.api.ns.mns1;
 
 import javax.xml.bind.annotation.*;
+import java.io.Serializable;
 
 @XmlRootElement(name = "OrderItem")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class OrderItem {
+public class OrderItem implements Serializable {
 
     @XmlAttribute(name = "id")
     private Long id;

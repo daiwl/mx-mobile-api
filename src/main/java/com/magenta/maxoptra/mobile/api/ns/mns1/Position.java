@@ -1,10 +1,11 @@
 package com.magenta.maxoptra.mobile.api.ns.mns1;
 
 import javax.xml.bind.annotation.*;
+import java.io.Serializable;
 
 @XmlRootElement(name = "Position")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Position {
+public class Position implements Serializable {
 
     @XmlElement(name = "Lat", required = true)
     private Double lat;

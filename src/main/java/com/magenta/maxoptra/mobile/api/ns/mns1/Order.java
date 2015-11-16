@@ -1,21 +1,27 @@
 package com.magenta.maxoptra.mobile.api.ns.mns1;
 
 import javax.xml.bind.annotation.*;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @XmlRootElement(name = "Order")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class OrderInfo {
+public class Order implements Serializable {
 
-    @XmlAttribute
+    @XmlAttribute(required = true)
     private Long id;
 
     @XmlElementWrapper(name = "OrderItems")
     @XmlElementRef(required = false)
-    private List<OrderItem> orderItems;
+    private List<OrderItem> orderItems = new ArrayList<>();;
 
     @XmlElementRef(required = false)
     private OrderState orderState;
+
+    @XmlElementWrapper(name = "DynamicAttributes")
+    @XmlElementRef(required = false)
+    private List<DynamicAttribute> dynamicAttributes;
 
     public Long getId() {
         return id;
@@ -41,8 +47,15 @@ public class OrderInfo {
         return orderState;
     }
 
-
     public void setOrderState(OrderState orderState) {
         this.orderState = orderState;
+    }
+
+    public List<DynamicAttribute> getDynamicAttributes() {
+        return dynamicAttributes;
+    }
+
+    public void setDynamicAttributes(List<DynamicAttribute> dynamicAttributes) {
+        this.dynamicAttributes = dynamicAttributes;
     }
 }

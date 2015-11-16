@@ -1,9 +1,11 @@
 package com.magenta.maxoptra.mobile.api.ns.mns1;
 
 import javax.xml.bind.annotation.*;
+import java.io.Serializable;
 
 @XmlRootElement(name = "AuthRequest")
-public class AuthRequest {
+@XmlAccessorType(XmlAccessType.FIELD)
+public class AuthRequest implements Serializable {
 
     @XmlElement(name = "Username", required = true)
     private String username;

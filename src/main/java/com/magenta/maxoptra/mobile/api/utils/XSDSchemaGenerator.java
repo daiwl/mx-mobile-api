@@ -1,11 +1,8 @@
 package com.magenta.maxoptra.mobile.api.utils;
 
-import com.magenta.maxoptra.mobile.api.ns.mns1.AuthRequest;
-import com.magenta.maxoptra.mobile.api.ns.mns1.AuthResponse;
+import com.magenta.maxoptra.mobile.api.ns.mns1.*;
 import com.magenta.maxoptra.mobile.api.ns.mns0.MobileAPIRequest;
 import com.magenta.maxoptra.mobile.api.ns.mns0.MobileAPIResponse;
-import com.magenta.maxoptra.mobile.api.ns.mns1.OrderInfo;
-import com.magenta.maxoptra.mobile.api.ns.mns1.RunInfo;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -17,8 +14,16 @@ import java.io.IOException;
 
 public class XSDSchemaGenerator {
 
+    public static void scheduleRequestXSD() throws JAXBException, IOException {
+        JAXBContext context = JAXBContext.newInstance(MobileAPIRequest.class, MobileAPIResponse.class,
+                AuthRequest.class, AuthResponse.class, ScheduleRequest.class, ScheduleResponse.class, DynamicAttribute.class,
+                Route.class, Order.class, OrderItem.class, OrderState.class, Position.class);
+        SchemaOutputResolver sor = new MXSchemaOutputResolver();
+        context.generateSchema(sor);
+    }
+
     public static void scheduleResponseXSD() throws JAXBException, IOException {
-        JAXBContext context = JAXBContext.newInstance(OrderInfo.class, RunInfo.class, MobileAPIRequest.class, MobileAPIResponse.class);
+        JAXBContext context = JAXBContext.newInstance(Order.class, Run.class, MobileAPIRequest.class, MobileAPIResponse.class);
         SchemaOutputResolver sor = new MXSchemaOutputResolver();
         context.generateSchema(sor);
     }

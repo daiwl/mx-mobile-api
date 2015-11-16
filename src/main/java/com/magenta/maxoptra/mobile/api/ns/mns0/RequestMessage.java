@@ -1,5 +1,4 @@
-package com.magenta.maxoptra.mobile.api.ns.mns1;
-
+package com.magenta.maxoptra.mobile.api.ns.mns0;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -7,19 +6,12 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
-@XmlRootElement(name = "AuthResponse")
+@XmlRootElement(name = "Message")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class AuthResponse implements Serializable {
+public class RequestMessage extends Message implements Serializable {
 
-    @XmlElement(name = "SessionID", required = true)
+    @XmlElement(name = "SessionID", required = false)
     private String sessionID;
-
-    public AuthResponse() {
-    }
-
-    public AuthResponse(String sessionID) {
-        this.sessionID = sessionID;
-    }
 
     public String getSessionID() {
         return sessionID;

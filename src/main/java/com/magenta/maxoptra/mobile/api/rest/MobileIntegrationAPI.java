@@ -9,10 +9,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
-@Path("schedule")
+@Path("mobile")
 @Produces(MediaType.APPLICATION_XML)
 @Consumes(MediaType.APPLICATION_XML)
-public interface MobileScheduleAPI {
+public interface MobileIntegrationAPI {
 
     @POST
     @Path("/sync")
